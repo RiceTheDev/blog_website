@@ -18,6 +18,19 @@ posts_table = supabase.table("posts")
 def index():
     return render_template('index.html')
 
+@app.route('/post/<int:post_id>')
+def post_detail(post_id):
+    # {{ post.text }}
+    # {% if post.image %}Post Image{% endif %}
+    # {{ post.content }}
+    # replace those in the html with data from the database
+    response = posts_table.select('*').eq('id', post_id).execute()
+    post_data = response.data
+    if not post_data:
+        return "Post not found", 404
+    post = post_data[0]
+    return render_template('post.html', post=post)
+
 @app.route("/api/posts", methods=["GET"])
 def api_posts():
     try:
