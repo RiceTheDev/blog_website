@@ -6,7 +6,7 @@ document.addEventListener("DOMContentLoaded", function() {
             
             data.forEach(post => {
                 const postElement = `<article class="post">
-                    <h2>${post.text}</h2>
+                    <h2><a style="color: inherit;" href="/posts/${post.id}">${post.text}</a></h2>
                     ${post.content.length < 100 ? `<p>${post.content}</p>` : `<p>${post.content.substring(0, 100)}...</p>`}
                     ${post.image ? `<img src="${post.image}" class="post-image" alt="Post Image"/>` : ''}
                     <div class="sep"></div>
@@ -15,5 +15,4 @@ document.addEventListener("DOMContentLoaded", function() {
             })
         })
         //.catch(error => console.error('Error fetching posts:', error))
-
 });
