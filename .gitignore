@@ -1,8 +1,3 @@
 data.sqlite
-<<<<<<< HEAD
 .env
 Procfile
-=======
-Procfile
-.env
->>>>>>> 2410c3be0ef41be3eaa753c37a6669914c0a0fb9
